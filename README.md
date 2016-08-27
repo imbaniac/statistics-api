@@ -6,6 +6,15 @@ What works:
 + User authentication (Devise auth token)
 + Basic integration tests
 
+To work with statistics API you should add to your GET request parameter **arr** with sequence of numbers:
+```
+?arr=1,2,3,4
+```
+To work with correlation API you should add to your GET request parameters **arr1** and **arr2** with sequences of numbers:
+```
+?arr1=1,2,3,4&arr2=1,5,6,2`
+```
+
 For now API is accessible only with authentication token, that is created with a new User.
 
 ###Sign_up - users#create
@@ -30,5 +39,4 @@ curl -X GET -H "Content-type: application/json" -H "Authorization: auth_token" h
 curl -X GET -H "Content-type: application/json" -H "Authorization: auth_token" http://localhost:3000/correlations/?arr1=1,2,3,4&arr2=1,2,3,6
 ```
 
-To work with statistics API you should add to your GET request parameter arr with sequence of numbers. IE `?arr=1,2,3,4`
-To work with correlation API you should add to your GET request parameters arr1 and arr2 with sequences of numbers. IE `?arr1=1,2,3,4&arr2=1,5,6,2`
+
