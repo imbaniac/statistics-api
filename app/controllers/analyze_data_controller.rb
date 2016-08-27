@@ -1,6 +1,5 @@
 class AnalyzeDataController < ApplicationController
 
-	#TODO auth
 	#TODO refactoring
 
 	def statistics
