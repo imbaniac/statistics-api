@@ -1,4 +1,4 @@
-This the API for RailsReactor test assignment
+This is the API for RailsReactor test assignment
 
 What works:
 + Full statistic analysis (min, max, average, median, quartiles and outliers)
