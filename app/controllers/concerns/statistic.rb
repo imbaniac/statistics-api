@@ -5,11 +5,9 @@ module Statistic
 			from: data,
 			to: {}
 		}
-		if data.size < 2
-			result[:to] = 0
-			return result
-		end
-		data_set = data.split(",").map(&:strip).map(&:to_f)
+		splited = data.to_s.split(",").map(&:strip)
+		return result if splited.size < 2 || !(array_of_numbers?(splited))
+		data_set = splited.map(&:to_f)
 		result[:to][:max] = data_set.max
 		result[:to][:min] = data_set.min
 		result[:to][:avg] = avg(data_set)
@@ -18,6 +16,11 @@ module Statistic
 		result[:to][:q3] = quartile(data_set, 3)
 		result[:to][:outliers] = outliers(data_set)
 		result
+	end
+
+	def array_of_numbers? array
+		non_numbers = array.select { |el| /\D/.match(el) }
+		non_numbers.length < 1
 	end
 
 	def avg(array)
@@ -75,10 +78,9 @@ module Statistic
 		num = pSum - (sumX * sumY/n)
 		den = ((sumXSq - (sumX**2)/n)*(sumYSq - (sumY**2)/n))**0.5
 
-		0 if den==0
+		0 if den == 0
 
 		result[:to] = num/den
 		result
 	end
-
 end

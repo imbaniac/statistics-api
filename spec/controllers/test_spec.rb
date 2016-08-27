@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Data", :type => :request do
-
+RSpec.describe "Statistic", :type => :request do
 
 	before :each do
 		@user = User.new(username: "user", email: "qwerty@qwert.com", password: "password", password_confirmation: "password")
@@ -9,7 +8,7 @@ RSpec.describe "Data", :type => :request do
 		@ok_seq = "1,2,3,54,2,44,4,5,3,4,2"
 		@sec_seq = "1,2,3,33,2,54,4,5,3,1,2"
 		@short_seq = "1,2,3,33,2,54"
-
+		@wrond_seq = "a, 2, boobs"
 	end
 
 	describe "GET /statistics" do
@@ -30,12 +29,19 @@ RSpec.describe "Data", :type => :request do
 			get "/statistics?arr=", headers: { 'Authorization': @user.access_token}
 			expect(response.status).to eq 200
 			results = JSON.parse(response.body)["to"]
-			expect(results).to eq 0
+			expect(results).to eq Hash.new
 		end
 
 		it "response with 401 if no access_token" do
 			get "/statistics?arr="
 			expect(response.status).to eq 401
+		end
+
+		it "return null when wrong seq" do
+			get "/statistics?arr=#{@wrond_seq}", headers: { 'Authorization': @user.access_token}
+			expect(response.status).to eq 200
+			results = JSON.parse(response.body)["to"]
+			expect(results).to eq Hash.new
 		end
 	end
 
