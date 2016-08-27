@@ -43,7 +43,7 @@ GEM
     arel (7.1.1)
     bcrypt (3.1.11)
     builder (3.2.2)
-    byebug (9.0.5)
+    byebug (9.0.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     devise (4.2.0)
@@ -54,8 +54,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    factory_girl (4.7.0)
-      activesupport (>= 3.0.0)
     ffi (1.9.14)
     formatador (0.2.5)
     globalid (0.3.7)
@@ -102,6 +100,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -192,12 +191,12 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.8.3)
-  byebug
+  byebug (= 9.0.0)
   devise
-  factory_girl
   guard-rspec (~> 4.7)
   jbuilder (~> 2.5)
   listen (~> 3.0.5)
+  pg (= 0.18.4)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rspec-rails
