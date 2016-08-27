@@ -32,6 +32,11 @@ RSpec.describe "Data", :type => :request do
 			results = JSON.parse(response.body)["to"]
 			expect(results).to eq 0
 		end
+
+		it "response with 401 if no access_token" do
+			get "/statistics?arr="
+			expect(response.status).to eq 401
+		end
 	end
 
 	describe "GET /correlations" do
@@ -54,6 +59,11 @@ RSpec.describe "Data", :type => :request do
 			expect(response.status).to eq 200
 			results = JSON.parse(response.body)["to"]
 			expect(results).to eq 0.9218367644281574
+		end
+
+		it "response 401 if no access_token" do
+			get "/correlations?arr1=#{@ok_seq}&arr2=#{@sec_seq}"
+			expect(response.status).to eq 401
 		end
 	end
 end

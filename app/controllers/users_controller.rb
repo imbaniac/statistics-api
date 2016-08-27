@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       if @user.save
         render json: @user, serializer: SessionSerializer, root: nil
       else
-        render json: { error: t('user_create_error') }, status: :unprocessable_entity
+        render json: { error: 'Error while creating user' }, status: :unprocessable_entity
       end
     end
 
