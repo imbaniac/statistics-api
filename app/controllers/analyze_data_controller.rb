@@ -1,7 +1,7 @@
 class AnalyzeDataController < ApplicationController
-
-	include Statistic # ./concerns/statistic.rb
-
+	# ./concerns/statistic.rb
+	include Statistic
+	
 	def statistics
 		@result = analyze_data(params[:arr])
 		render json: @result
