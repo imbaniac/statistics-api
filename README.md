@@ -6,6 +6,11 @@ What works:
 + User authentication (Devise auth token)
 + Basic integration tests
 
+To run the server locally 
+1. Clone or download it.
+2. Run `bundle`
+3. Run `rails s`
+
 To work with statistics API you should add to your GET request parameter **arr** with sequence of numbers:
 ```
 ?arr=1,2,3,4
@@ -38,5 +43,4 @@ curl -X GET -H "Content-type: application/json" -H "Authorization: auth_token" h
 ```
 curl -X GET -H "Content-type: application/json" -H "Authorization: auth_token" http://localhost:3000/correlations/?arr1=1,2,3,4&arr2=1,2,3,6
 ```
-
 
