@@ -7,9 +7,9 @@ What works:
 + Basic integration tests
 
 To run the server locally 
-1. Clone or download it.
-2. Run `bundle`
-3. Run `rails s`
+  1. Clone or download it.
+  2. Run `bundle`
+  3. Run `rails s`
 
 To work with statistics API you should add to your GET request parameter **arr** with sequence of numbers:
 ```
