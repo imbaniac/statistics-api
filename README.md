@@ -9,8 +9,9 @@ What works:
 To run the server locally:
   1. Clone or download it.
   2. Run `bundle`
-  3. Run `rails s`
-  4. To run tests `guard`
+  3. Run `rails db:migrate` 
+  4. Run `rails s`
+  5. To run tests `guard`
   
 
 To work with statistics API you should add to your GET request parameter **arr** with sequence of numbers:
